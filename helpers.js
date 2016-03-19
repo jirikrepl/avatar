@@ -3,7 +3,10 @@
 getService = function (user) {
   var services = user && user.services || {};
   if (getCustomUrl(user)) { return 'custom'; }
-  var service = _.find([['twitter', 'profile_image_url_https'], ['facebook', 'id'], ['google', 'picture'], ['github', 'username'], ['instagram', 'profile_picture'], ['linkedin', 'pictureUrl']], function(s) { return !!services[s[0]] && s[1].length && !!services[s[0]][s[1]]; });
+  var service = _.find([['facebook', 'id'], ['google', 'picture'], ['password', 'bcrypt']],
+      function(s) {
+        return !!services[s[0]] && s[1].length && !!services[s[0]][s[1]];
+      });
   if(!service)
     return 'none';
   else
@@ -18,7 +21,7 @@ getCustomUrl = function (user) {
     if (prop && typeof prop === 'string') {
       return prop;
     }
-  }
+  };
 
   var customProp = user && Avatar.options.customImageProperty;
   if (typeof customProp === 'function') {
@@ -26,7 +29,7 @@ getCustomUrl = function (user) {
   } else if (customProp) {
     return computeUrl(getDescendantProp(user, customProp));
   }
-}
+};
 
 getGravatarUrl = function (user, defaultUrl) {
   var gravatarDefault;
@@ -77,23 +80,23 @@ getEmailOrHash = function (user) {
 sizeClass = function(context) {
   // Defaults are 'large', 'small', 'extra-small', but user can add new ones
   return Avatar.options.imageSizes[context.size] ? Avatar.getCssClassPrefix() + '-' + context.size : '';
-}
+};
 
 // Returns the shape class for an avatar
 shapeClass = function (context) {
   var valid = ['rounded', 'circle'];
   return _.contains(valid, context.shape) ? Avatar.getCssClassPrefix() + '-' + context.shape : '';
-}
+};
 
 // Returns the custom class(es) for an avatar
 customClasses = function (context) {
   return context.class ? context.class : '';
-}
+};
 
 // Returns the initials text for an avatar
 initialsText = function(user, context) {
   return context.initials || Avatar.getInitials(user);
-}
+};
 
 // Creates the dynamically generated CSS file
 //
@@ -177,4 +180,4 @@ createCSS = function () {
   // into the HTML code before it's sent to the client.
 
   Inject.rawHead('avatar-styles', '<style>' + css + '</style>');
-}
+};

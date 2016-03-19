@@ -1,3 +1,10 @@
+#Forked version of package Avatar
+It will show default (guest) image, when user is not logged in.
+
+It will show user's initials when user is logged in with email.
+
+It will show profile pictures, when user is logged in with fb/google
+
 ![logo](https://s3.amazonaws.com/f.cl.ly/items/1u233B1J332D393D2m2j/avatar-logo.png)
 ================================================================================
 
