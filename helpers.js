@@ -3,14 +3,18 @@
 getService = function (user) {
   var services = user && user.services || {};
   if (getCustomUrl(user)) { return 'custom'; }
-  var service = _.find([['facebook', 'id'], ['google', 'picture'], ['password', 'bcrypt']],
+  //var service = _.find([['facebook', 'id'], ['google', 'picture'], ['password', 'bcrypt']],
+  //    function(s) {
+  //      return !!services[s[0]] && s[1].length && !!services[s[0]][s[1]];
+  //    });
+  var service = _.find(['facebook',  'google', 'password'],
       function(s) {
-        return !!services[s[0]] && s[1].length && !!services[s[0]][s[1]];
+        return !!services[s];
       });
   if(!service)
     return 'none';
   else
-    return service[0];
+    return service;
 };
 
 getCustomUrl = function (user) {
