@@ -50,11 +50,11 @@ Avatar = {
 
     // Default background color when displaying the initials.
     // Can also be set to a function to map an user object to a background color.
-    backgroundColor: "#aaa",
+    backgroundColor: "#DAF8FF",
 
     // Default text color when displaying the initials.
     // Can also be set to a function to map an user object to a text color.
-    textColor: "#fff",
+    textColor: "#006C9A",
 
     // Generate the required CSS and include it in the head of your application.
     // Setting this to false will exclude the generated CSS and leave the
