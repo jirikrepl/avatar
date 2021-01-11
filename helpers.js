@@ -140,7 +140,8 @@ createCSS = function () {
       background-size: 100% 100%; \n\
       background-color: ' + Avatar.options.backgroundColor + '; \n\
       color: ' + Avatar.options.textColor +'; \n\
-      font-size: 25px; \n\
+      font-size: 20px; \n\
+      font-weight: 500; \n\
       line-height: 50px; \n\
       font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif; \n\
       text-align: center; \n\
