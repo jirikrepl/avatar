@@ -38,7 +38,7 @@ Package.onUse(function(api) {
   api.addFiles(
     [
       // 'react/avatar.jsx',
-      'utils.js',
+      // 'utils.js',
       'helpers.js',
       'export.js'
     ],

@@ -2,7 +2,7 @@
 // Priority: Twitter > Facebook > Google > GitHub > Instagram > Linkedin
 getService = function (user) {
   var services = user && user.services || {};
-  if (getCustomUrl(user)) { return 'custom'; }
+  // if (getCustomUrl(user)) { return 'custom'; }
   //var service = _.find([['facebook', 'id'], ['google', 'picture'], ['password', 'bcrypt']],
   //    function(s) {
   //      return !!services[s[0]] && s[1].length && !!services[s[0]][s[1]];
@@ -17,23 +17,23 @@ getService = function (user) {
     return service;
 };
 
-getCustomUrl = function (user) {
-  var computeUrl = function(prop) {
-    if (typeof prop === 'function') {
-      prop = prop.call(user);
-    }
-    if (prop && typeof prop === 'string') {
-      return prop;
-    }
-  };
-
-  var customProp = user && Avatar.options.customImageProperty;
-  if (typeof customProp === 'function') {
-    return computeUrl(customProp);
-  } else if (customProp) {
-    return computeUrl(getDescendantProp(user, customProp));
-  }
-};
+// getCustomUrl = function (user) {
+//   var computeUrl = function(prop) {
+//     if (typeof prop === 'function') {
+//       prop = prop.call(user);
+//     }
+//     if (prop && typeof prop === 'string') {
+//       return prop;
+//     }
+//   };
+//
+//   var customProp = user && Avatar.options.customImageProperty;
+//   if (typeof customProp === 'function') {
+//     return computeUrl(customProp);
+//   } else if (customProp) {
+//     return computeUrl(getDescendantProp(user, customProp));
+//   }
+// };
 
 // getGravatarUrl = function (user, defaultUrl) {
 //   var gravatarDefault;
@@ -63,22 +63,22 @@ getCustomUrl = function (user) {
 // };
 
 // Get the user's email address or (if the emailHashProperty is defined) hash
-getEmailOrHash = function (user) {
-  var emailOrHash;
-  if (user && Avatar.options.emailHashProperty && !!getDescendantProp(user, Avatar.options.emailHashProperty)) {
-    emailOrHash = getDescendantProp(user, Avatar.options.emailHashProperty);
-  }
-  else if (user && user.emails) {
-    var emails = _.pluck(user.emails, 'address');
-    emailOrHash = emails[0] || '00000000000000000000000000000000';
-  }
-  else {
-    // If all else fails, return 32 zeros (trash hash, hehe) so that Gravatar
-    // has something to build a URL with at least.
-    emailOrHash = '00000000000000000000000000000000';
-  }
-  return emailOrHash;
-};
+// getEmailOrHash = function (user) {
+//   var emailOrHash;
+//   if (user && Avatar.options.emailHashProperty && !!getDescendantProp(user, Avatar.options.emailHashProperty)) {
+//     emailOrHash = getDescendantProp(user, Avatar.options.emailHashProperty);
+//   }
+//   else if (user && user.emails) {
+//     var emails = _.pluck(user.emails, 'address');
+//     emailOrHash = emails[0] || '00000000000000000000000000000000';
+//   }
+//   else {
+//     // If all else fails, return 32 zeros (trash hash, hehe) so that Gravatar
+//     // has something to build a URL with at least.
+//     emailOrHash = '00000000000000000000000000000000';
+//   }
+//   return emailOrHash;
+// };
 
 // Returns the size class to use for an avatar
 sizeClass = function(context) {

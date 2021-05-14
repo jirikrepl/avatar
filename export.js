@@ -97,26 +97,26 @@ Avatar = {
     var name = '';
     var parts = [];
 
-    if (user && user.profile && user.profile.firstName) {
-      initials = user.profile.firstName.charAt(0).toUpperCase();
-
-      if (user.profile.lastName) {
-        initials += user.profile.lastName.charAt(0).toUpperCase();
-      }
-      else if (user.profile.familyName) {
-        initials += user.profile.familyName.charAt(0).toUpperCase();
-      }
-      else if (user.profile.secondName) {
-        initials += user.profile.secondName.charAt(0).toUpperCase();
-      }
-    }
-    else {
+    // if (user && user.profile && user.profile.firstName) {
+    //   initials = user.profile.firstName.charAt(0).toUpperCase();
+    //
+    //   if (user.profile.lastName) {
+    //     initials += user.profile.lastName.charAt(0).toUpperCase();
+    //   }
+    //   else if (user.profile.familyName) {
+    //     initials += user.profile.familyName.charAt(0).toUpperCase();
+    //   }
+    //   else if (user.profile.secondName) {
+    //     initials += user.profile.secondName.charAt(0).toUpperCase();
+    //   }
+    // }
+    // else {
       if (user && user.profile && user.profile.name) {
         name = user.profile.name;
       }
-      else if (user && user.username) {
-        name = user.username;
-      }
+      // else if (user && user.username) {
+      //   name = user.username;
+      // }
 
       parts = name.split(' ');
       // Limit getInitials to first and last initial to avoid problems with
@@ -125,7 +125,7 @@ Avatar = {
       if (parts.length > 1) {
         initials += _.last(parts).charAt(0).toUpperCase();
       }
-    }
+    // }
 
     return initials;
   },
@@ -146,12 +146,12 @@ Avatar = {
         // use larger image (~200x200)
         url = 'https://graph.facebook.com/' + user.services.facebook.id + '/picture/?type=large';
       }
-      else if (svc === 'google') {
-        url = user.services.google.picture;
-      }
-      else if (svc === "custom") {
-        url = getCustomUrl(user);
-      }
+      // else if (svc === 'google') {
+      //   url = user.services.google.picture;
+      // }
+      // else if (svc === "custom") {
+      //   url = getCustomUrl(user);
+      // }
       else if (svc === 'none') {
         url = Avatar.options.defaultImageUrl || '/packages/utilities_avatar/default.png';
       }
