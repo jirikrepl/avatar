@@ -160,9 +160,9 @@ Avatar = {
   },
 
   // Create a Gravatar-compatible hash for a given email address
-  hash: function (email) {
-    return Gravatar.hash(email);
-  }
+  // hash: function (email) {
+  //   return Gravatar.hash(email);
+  // }
 };
 
 // Call createCSS to generate the default CSS depend on the option

@@ -1,5 +1,5 @@
 Package.describe({
-  name: "utilities:avatar-modified",
+  name: "utilities:avatar",
   summary: "Consolidated user avatar template (twitter, facebook, gravatar, etc.)",
   version: "0.9.2",
   git: "https://github.com/meteor-utilities/avatar"
@@ -8,7 +8,7 @@ Package.describe({
 Package.onUse(function(api) {
   api.versionsFrom(['METEOR@0.9.4.1', 'METEOR@1.1.0.1']);
   api.use(['templating', 'reactive-var'], ['client']);
-  api.use(['underscore', 'jparker:gravatar@0.3.1'], ['client', 'server']);
+  api.use(['underscore'/* ,'jparker:gravatar@0.3.1' */], ['client', 'server']);
   api.use(['meteorhacks:inject-initial@1.0.4-rc.0'], ['server']);
 
   // IMPORTANT:
